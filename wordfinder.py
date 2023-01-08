@@ -1,6 +1,5 @@
 """Word Finder: finds random words from a dictionary."""
-# import random
-import random
+from random import choice
 
 class WordFinder:
     '''
@@ -19,10 +18,15 @@ class WordFinder:
         self.path = path
 
         self.count_and_list_words()
+
+    def __str__(self):
+        return f'Read and store the file located at {self.path}'
     
     def count_and_list_words(self):
         '''
         Searches for the file in the path, creates a count of how many words are in the file and returns the count in a string, and adds each word into a list
+
+
         '''
         count = 0
         file = open(self.path)
@@ -39,7 +43,7 @@ class WordFinder:
         '''
         Returns a random word from the list of words generated at instantiation
         '''
-        return random.choice(self.word_list)
+        return choice(self.word_list)
 
 class SpecialWordFinder(WordFinder):
     '''
